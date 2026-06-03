@@ -1,0 +1,126 @@
+.services {
+  padding: 8rem 0;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(124,92,191,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.services-head {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4.5rem;
+}
+.services-head .section-title em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+.services-sub {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.svc-card {
+  background: var(--bg-card);
+  padding: 2.5rem 2rem;
+  position: relative;
+  cursor: default;
+  transition: background 0.3s ease;
+  border: 1px solid transparent;
+  margin: -0.75px;
+}
+.svc-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+.svc-card:hover {
+  background: var(--bg-card-hover);
+}
+.svc-card:hover::after {
+  border-color: var(--border-hover);
+}
+
+.svc-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.svc-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--accent-light);
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.svc-card:hover .svc-icon {
+  transform: scale(1.1);
+  color: var(--accent-light);
+}
+.svc-icon-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.svc-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.svc-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.svc-line {
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.svc-card:hover .svc-line {
+  transform: scaleX(1);
+}
+
+@media (max-width: 960px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .svc-card { padding: 2rem 1.5rem; }
+  .services { padding: 6rem 0; }
+}
